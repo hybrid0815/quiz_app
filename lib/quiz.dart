@@ -42,8 +42,12 @@ class _QuizState extends State<Quiz> {
     Widget activeScreen = StartScreen(startQuiz: switchScreen);
 
     if (_activeScreenName == 'question-screen') {
-      activeScreen = QuestionScreen(onSelectAnswer: chooserAnswer);
-    } else if (_activeScreenName == 'results-screen') {
+      activeScreen = QuestionScreen(
+        onSelectAnswer: chooserAnswer,
+      );
+    }
+
+    if (_activeScreenName == 'results-screen') {
       activeScreen = ResultsScreen(
         resetQuiz: resetQuiz,
         selectedAnswers: selectedAnswers,
