@@ -1,4 +1,7 @@
 # Quize App
+![Simulator Screenshot - iPhone 15 Pro Max - 2024-07-31 at 13 53 28](https://github.com/user-attachments/assets/47d3e6c4-2adc-4c3e-8008-bf43020a52e4)
+![Simulator Screenshot - iPhone 15 Pro Max - 2024-07-31 at 13 53 35](https://github.com/user-attachments/assets/e9aedf6a-2d5f-4f1d-96d1-813752de9b60)
+![Simulator Screenshot - iPhone 15 Pro Max - 2024-07-31 at 13 53 44](https://github.com/user-attachments/assets/f19f4b94-5807-470e-a833-b75685f61d50)
 
 ## List of Things to Know
 - Render Content Conditionally
