@@ -75,6 +75,143 @@ class _QuizState extends State<Quiz> {
 - Text
 - OutlinedButton.icon
 - Opacity
-- 
-## Getting Started
+- GoogleFonts
+- Expanded
+- SingleChildScrollView
 
+
+## Using "if" Statements In Lists
+
+```dart
+final myList = [
+  1,
+  2,
+  if (condition)
+    3
+];
+
+final myList = [
+  1,
+  2,
+  if (condition)
+    3
+  else
+    4
+];
+
+final myList = [
+  1,
+  2,
+  condition ? 3 : 4
+];
+```
+
+## Data
+- 데이터의 대표적인 형태는 리스트 딕셔너리 이다.
+```dart
+List<Map<String, Object>>
+```
+
+- 하나의 데이터를 다루기 위해서는 데이터 클래스를 만든다.
+
+```dart
+class Question {
+  final String question;
+  final List<String> answers;
+
+  const Question(this.question, this.answers);
+}
+```
+
+- 하나의 데이터를 표현하는 위젯을 만든다.
+- 이 위젯을 리스트로 포함하는 리스트 위젯을 만든다.
+
+## Spreading Values(...)
+```dart
+const numbers = [1, 2, 3];
+
+const moreNumbers1 = [numbers, 4]; # [[1, 2, 3], 4]
+
+const moreNumbers2 = [...numbers, 4]; # [1, 2, 3, 4]
+```
+
+## List.map()
+
+```dart
+List<Widget> buildAnswerButtons1(List<String> answers) {
+  List<Widget> listWidget = [];
+  for (String answer in answers) {
+    final Widget widget = AnswerButton(answerText: answer, onPressed: () {});
+    listWidget.add(widget);
+  }
+  return listWidget;
+}
+
+List<Widget> buildAnswerButtons2(List<String> answers) {
+  return answers.map((answer) {
+    return AnswerButton(answerText: answer, onPressed: () {});
+  }).toList();
+}
+```
+
+## List Copy & Shuffle
+```dart
+final numbers = [1, 2, 3];
+final newNumbers = List.of(numbers); # copy
+newNumbers.shuffle(); # shuffle
+```
+
+## Change Font
+
+```bash
+flutter pub add google_fonts
+```
+
+## map & for
+```dart
+for (var item in summaryData)
+  Column(
+    children: [
+      Text(item['question'] as String),
+      Text(item['correct_answer'] as String),
+      Text(item['user_answer'] as String),
+      const SizedBox(height: 30),
+    ],
+  ),
+```
+
+```dart
+...summaryData.map((item) {
+  return Column(
+    children: [
+      Text(item['question'] as String),
+      Text(item['correct_answer'] as String),
+      Text(item['user_answer'] as String),
+      const SizedBox(height: 30),
+    ],
+  );
+}),
+```
+
+## List.where
+```dart
+int correctNum = summaryData.where((item) {
+      return item['correct_answer'] == item['user_answer'];
+    }).length;  
+```
+
+## getter
+```dart
+List<Map<String, Object>> get summaryData {
+  List<Map<String, Object>> summary = [];
+  for (int i = 0; i < questions.length; i++) {
+    summary.add({
+      'question_index': i + 1,
+      'question': questions[i].question,
+      'correct_answer': questions[i].answers[0],
+      'user_answer': selectedAnswers[i],
+    });
+  }
+  return summary;
+}
+```
